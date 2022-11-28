@@ -4,7 +4,7 @@ RUN apt update && apt install nginx -y && apt install openssl
 
 COPY ./nginx.conf /etc/nginx/conf.d/nginx.conf
 
-RUN mkdir /etc/nginx/ssl
+RUN mkdir -p /etc/nginx/ssl
 
 RUN openssl req -new \
 	 -newkey rsa:4096 \
@@ -15,3 +15,5 @@ RUN openssl req -new \
 	 -subj '/CN=localhost'
 
 EXPOSE 443
+
+CMD ["nginx", "-g", "daemon off;"]
