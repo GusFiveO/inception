@@ -7,5 +7,4 @@ COPY ./dbsetup.sql /var/.
 COPY ./initdb.sh /var/.
 COPY ./my.cnf /etc/mysql/my.cnf
 
-#CMD ["/bin/bash", "/var/initdb.sh"]
 ENTRYPOINT ["/bin/bash", "/var/initdb.sh"]
