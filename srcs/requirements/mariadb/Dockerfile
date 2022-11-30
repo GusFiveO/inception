@@ -3,12 +3,9 @@ FROM debian:buster
 RUN apt update -y && apt install mariadb-client -y && apt install mariadb-server -y \
 	&& apt install gettext-base
 
-COPY ./dbsetup.sql /var/tmp/ 
+COPY ./dbsetup.sql /var/. 
+COPY ./initdb.sh /var/.
+COPY ./my.cnf /etc/mysql/my.cnf
 
-RUN service mysql start
-
-RUN envsubst < /var/tmp/dbsetup.sql > /var/tmp/dbsetupenv.sql
-
-RUN mysql < /var/tmp/dbsetupenv.sql
-
-CMD ["/bin/sh"]
+#CMD ["/bin/bash", "/var/initdb.sh"]
+ENTRYPOINT ["/bin/bash", "/var/initdb.sh"]
