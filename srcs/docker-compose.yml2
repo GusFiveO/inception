@@ -8,7 +8,6 @@ services:
       - "443:443"
     networks:
       - myNetwork
-    restart: on-failure
     depends_on:
       - mariadb
   mariadb:
@@ -20,13 +19,26 @@ services:
       - myNetwork
     volumes:
       - mysql:/var/lib/mysql
-    restart: on-failure
+  wp:
+    build: requirements/wordpress/
+    container_name: wp
+    image: wp
+    networks:
+      - myNetwork
+    volumes:
+      - wp:/var/lib/wp
 
 volumes:
-   mysql:
+  mysql:
     driver_opts:
       type: none
       device: "/home/alorain/data/mysql"
       o: bind
+  wp:
+    driver_opts:
+      type: none
+      device: "/home/alorain/data/wp"
+      o: bind
+
 networks:
   myNetwork: {}
