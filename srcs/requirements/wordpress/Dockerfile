@@ -12,4 +12,6 @@ RUN chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp
 RUN mkdir -p /run/php 
 RUN mkdir -p /var/www/html/wordpress
 
+WORKDIR /var/www/html/wordpress
+
 CMD  ["bash", "/var/init.sh"]
