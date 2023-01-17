@@ -11,9 +11,9 @@ then
 	sleep 2
 	mysql < /var/dbsetupenv.sql
 
-	service mysql stop
+	mysqladmin -u root -p$ROOT_PASSWD shutdown
 	touch /var/lib/mysql/.db_create
 fi
 echo "Starting the Db"
 
-exec mysqld_safe --user=mysql
+exec mysqld_safe 
