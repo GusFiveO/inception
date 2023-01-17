@@ -13,6 +13,7 @@ services:
     restart: on-failure
     depends_on:
       - mariadb
+    restart: on-failure
   mariadb:
     env_file: .env
     build: requirements/mariadb/
@@ -34,6 +35,7 @@ services:
       - wp:/var/www/html
     depends_on:
       - mariadb
+    restart: on-failure
 
 volumes:
    mysql:
