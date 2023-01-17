@@ -14,5 +14,6 @@ then
 	service mysql stop
 	touch /var/lib/mysql/.db_create
 fi
+echo "Starting the Db"
 
 exec mysqld_safe --user=mysql

@@ -17,6 +17,6 @@ then
 
 	wp user create ${USER_NAME} ${AUTHOR_EMAIL} --role=author --user_pass=${USER_PASSWD} --allow-root  
 	history -c
-	touch /var/lib/.wp_init
+	touch /var/www/html/.wp_init
 fi
 exec php-fpm7.3 -F

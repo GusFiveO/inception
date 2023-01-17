@@ -13,10 +13,11 @@ clean:
 	docker system prune -af
 
 vclean:
-	rm -rf /home/alorain/data/mysql
-	rm -rf /home/alorain/data/wp
+	rm -rf /home/alorain/data
 
-re: clean vclean all
+fclean: clean vclean
+
+re: stop fclean all
 
 .PHONY: all stop clean re
 
