@@ -12,7 +12,7 @@ RUN openssl req \
 	 -keyout /etc/nginx/ssl/alorain.42.fr.key \
 	 -subj "/CN=alorain.42.fr"
 
-COPY ./nginx.conf /etc/nginx/conf.d/nginx.conf
+COPY ./conf/nginx.conf /etc/nginx/conf.d/nginx.conf
 
 RUN chmod 755 /var/www/html
 RUN chown -R www-data:www-data /var/www/html
