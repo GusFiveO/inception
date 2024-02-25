@@ -24,9 +24,12 @@ Make sure you have Docker and Docker Compose installed on your system.
 
     ```
     DB_NAME=mydatabase
-    DB_USER=myuser
-    DB_PASSWORD=mypassword
-    DB_ROOT_PASSWORD=myrootpassword
+    USER_NAME=myusername
+    USER_PASSWD=mypassword
+    ADMIN_NAME=adminusername
+    ADMIN_PASSWD=adminpassword
+    ADMIN_EMAIL=admin@example.com
+    AUTHOR_EMAIL=authoremail@example.com
     ```
 
 4. Build and start the services:
